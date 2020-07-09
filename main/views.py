@@ -38,6 +38,7 @@ class CRUDSerializer(serializers.ModelSerializer):
 class ListCreate(generics.ListCreateAPIView):
     permission_classes = [AllowAny]
     serializer_class = CreateSerializer
+    queryset = DataHolder.objects.all()
 
 
     def list(self, request, *args, **kwargs):
