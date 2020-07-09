@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    command: gunicorn interview.wsgi:application --bind 0.0.0.0:7070 --workers 1
+    volumes:
+      - .:/code
+    ports:
+      - "7070:7070"
+
+#python manage.py runserver 0.0.0.0:7010
